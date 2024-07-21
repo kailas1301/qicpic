@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:qicpic/pages/call_waiter.dart';
-import 'package:qicpic/pages/home.dart';
-import 'package:qicpic/pages/offers.dart';
-import 'package:qicpic/pages/order.dart';
+import 'package:qicpic/pages/call_waiter/call_waiter.dart';
+import 'package:qicpic/pages/home/home.dart';
+import 'package:qicpic/pages/offers/offers.dart';
+import 'package:qicpic/pages/order/order.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});
@@ -38,7 +38,9 @@ class _BottomNavState extends State<BottomNav> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.local_cafe),
+            icon: ImageIcon(
+              AssetImage("assets/images/🦆 icon _coffee cup_.png"),
+            ),
             label: 'Order',
           ),
           BottomNavigationBarItem(

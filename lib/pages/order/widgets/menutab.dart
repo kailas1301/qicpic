@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qicpic/constants/constants.dart';
-import 'package:qicpic/pages/product.dart';
+import 'package:qicpic/pages/order/widgets/menu_item.dart';
 import 'package:qicpic/widgets/dialougue_text.dart';
 
 class MenuTab extends StatelessWidget {
@@ -11,13 +11,13 @@ class MenuTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       child: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SubHeadingTextWidget(
+            const SubHeadingTextWidget(
               title: 'Drinks',
               textsize: 18,
               fontWeight: FontWeight.w600,
@@ -35,14 +35,17 @@ class MenuTab extends StatelessWidget {
               description: 'Lorem Ipsum is simply dummy text',
               navigatorKey: navigatorKey,
             ),
-            Divider(color: Colors.brown, thickness: 2),
+            const Divider(
+              color: Color.fromRGBO(121, 85, 72, 1),
+              height: 2,
+            ),
             kSizedBoxH10,
-            SubHeadingTextWidget(
+            const SubHeadingTextWidget(
               title: 'Snacks',
               textsize: 18,
               fontWeight: FontWeight.w600,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             MenuItem(
               imagePath: 'assets/images/Croissant (7).png',
               title: 'Cinnamon bun',
@@ -57,72 +60,15 @@ class MenuTab extends StatelessWidget {
             ),
             MenuItem(
               imagePath: 'assets/images/Croissant (9).png',
-              title: 'Croissant',
+              title: 'Bacon, Sausagae & Egg Wrap',
               description: 'Lorem Ipsum is simply dummy text',
               navigatorKey: navigatorKey,
             ),
             MenuItem(
               imagePath: 'assets/images/Croissant (3).png',
-              title: 'Croissant',
+              title: 'Signature hamburger with cheese',
               description: 'Lorem Ipsum is simply dummy text',
               navigatorKey: navigatorKey,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class MenuItem extends StatelessWidget {
-  const MenuItem({
-    super.key,
-    required this.imagePath,
-    required this.title,
-    required this.description,
-    required this.navigatorKey,
-  });
-
-  final String imagePath;
-  final String title;
-  final String description;
-  final GlobalKey<NavigatorState> navigatorKey;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        navigatorKey.currentState?.push(
-          MaterialPageRoute(
-            builder: (context) => ProductPage(product: title),
-          ),
-        );
-      },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10.0),
-        child: Row(
-          children: [
-            Image.asset(
-              imagePath,
-              width: 70,
-              height: 70,
-              fit: BoxFit.cover,
-            ),
-            const SizedBox(width: 10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SubHeadingTextWidget(
-                  title: title,
-                  textsize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-                SubHeadingTextWidget(
-                  title: description,
-                  textsize: 13,
-                  fontWeight: FontWeight.w400,
-                ),
-              ],
             ),
           ],
         ),
